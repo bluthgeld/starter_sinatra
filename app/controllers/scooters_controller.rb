@@ -4,14 +4,11 @@ class ScootersController < Sinatra::Base
     set :method_override, true
 
     get "/scooters" do
-
       @scooters = Scooter.all
       erb :index
-
     end
 
     post "/scooters" do
-
       name = params["name"]
       model = params["model"]
       color = params["color"]
@@ -21,17 +18,20 @@ class ScootersController < Sinatra::Base
     end
 
     get "/scooters/new" do
-
       erb :new
-
     end
 
     get "/scooters/:id" do
-
       id = params[:id]
       @scooter = Scooter.find(id)
       erb :show
-
     end
+
+    delete "/scooters/:id" do
+        id = params[:id]
+        @scooter = Scooter.find(id)
+        @scooter.destroy
+        redirect "/scooters"
+      end
 
 end
