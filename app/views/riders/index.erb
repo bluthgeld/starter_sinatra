@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>These are the Riders</h1>
+
+      <% @riders.each do |rider| %>
+
+        <h3><a href="/riders/<%= rider.id %>"><%= rider.first_name %> <%= rider.last_name %></a></h3>
+
+      <% end %>
+  </body>
+</html>

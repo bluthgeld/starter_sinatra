@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @rider.first_name %>'s Rider Page</title>
+  </head>
+  <body>
+    <h1>Rider: <%= @rider.first_name %> <%= @rider.last_name %></h1>
+    <h2>First Name: <%= @rider.first_name %></h2>
+    <h2>Last Name: <%= @rider.last_name %></h2>
+    <h2>Membership Level: <%= @rider.membership_type %></h2>
+
+
+    <h2><%= @rider.first_name %>'s Trips</h2>
+    <table style="width: 100%">
+      <tr><th>Date</th><th>Origin</th><th>Destination</th><th>Mileage</th></tr>
+
+        <% @rider.trips.each do |trip| %>
+        <tr><td><%= trip.date %></td><td><%= trip.pick_up_loc %></td><td><%= trip.drop_off_loc %></td><td><%= trip.mileage %></td></tr>
+        <% end %>
+      </table>
+  </body>
+</html>
