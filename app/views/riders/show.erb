@@ -19,5 +19,13 @@
         <tr><td><%= trip.date %></td><td><%= trip.pick_up_loc %></td><td><%= trip.drop_off_loc %></td><td><%= trip.mileage %></td></tr>
         <% end %>
       </table>
+
+      <h2><a href = "/riders/<%= @rider.id %>/edit">Edit this Rider</a></h2>
+
+      <form action="/riders/<%= @rider.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Rider">
+      </form>
+
   </body>
 </html>

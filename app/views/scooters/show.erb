@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @scooter.name %>'s Page</title>
+  </head>
+  <body>
+    <h1>Scooter: <%= @scooter.name %></h1>
+    <h2>Model: <%= @scooter.model %></h2>
+    <h2>Color: <%= @scooter.color %></h2>
+    <h2>Inception Date: <%= @scooter.inception_date %></h2>
+
+
+    <h2><%= @scooter.name %>'s Trips</h2>
+    <table style="width: 100%">
+      <tr><th>Date</th><th>Origin</th><th>Destination</th><th>Mileage</th></tr>
+
+        <% @scooter.trips.each do |trip| %>
+        <tr><td><%= trip.date %></td><td><%= trip.pick_up_loc %></td><td><%= trip.drop_off_loc %></td><td><%= trip.mileage %></td></tr>
+        <% end %>
+      </table>
+
+      <h2><a href = "/scooters/<%= @scooter.id %>/edit">Edit this Scooter</a></h2>
+
+      <form action="/scooters/<%= @scooter.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Scooter">
+      </form>
+
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Rider</title>
+  </head>
+  <body>
+
+    <h1>Edit Rider <%= @rider.first_name %> <%=@rider.last_name %>
+    </h1>
+    <form action="/riders/<%= @rider.id %>" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <label for="first_name">First Name</label>
+      <input type="text" name="first_name">
+      <label for="last_name">Last Name</label>
+      <input type="text" name="last_name">
+      <label for="membership_type">Membership Type</label>
+      <input type="text" name="membership_type">
+
+      <input type="submit" values="Update Rider">
+    </form>
+
+
+  </body>
+</html>

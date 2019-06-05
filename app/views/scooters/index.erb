@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Scooters</title>
+  </head>
+  <body>
+    <h1>These are the Scooters</h1>
+
+      <% @scooters.each do |scooter| %>
+
+        <h3><a href="/scooters/<%= scooter.id %>"><%= scooter.name %></a></h3>
+
+      <% end %>
+
+      <h2><a href="/scooters/new">Create a New Scooter</a></h2>
+  </body>
+</html>
