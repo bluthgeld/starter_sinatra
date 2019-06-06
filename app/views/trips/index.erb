@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trips</title>
+  </head>
+  <body>
+    <h1>These are the Trips</h1>
+    <table style="width: 100%">
+      <tr>
+        <th>Trip Date</th>
+        <th>Rider Name</th>
+        <th>Scooter</th>
+        <th>Pick Up</th>
+        <th>Drop Off</th>
+        <th>Mileage</th>
+      </tr>
+
+      <% @trips.each do |trip| %>
+
+        <tr>
+          <td><a href="/trips/<%= trip.id %>"><%= trip.date %></a></td>
+          <td><a href="/riders/<%= trip.rider.id %>"><%= trip.rider.first_name %> <%= trip.rider.last_name %></a></td>
+          <td><a href="/scooters/<%= trip.scooter.id %>"><%= trip.scooter.name %></a></td>
+          <td><%= trip.pick_up_loc %></td>
+          <td><%= trip.drop_off_loc %></td>
+          <td><%= trip.mileage %></td>
+        </tr>
+
+        <% end %>
+
+    </table>
+
+      <h2><a href="/trips/new">Create a New Trip</a></h2>
+  </body>
+</html>

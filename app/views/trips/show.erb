@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trip Taken On <%= @trip.date %></title>
+  </head>
+  <body>
+    <h1>Trip Date: <%= @trip.date %></h1>
+    <h2>Rider: <a href="/riders/<%= @trip.rider.id %>"><%= @trip.rider.first_name %> <%= @trip.rider.last_name %></a></h2>
+    <h2>Scooter: <a href="/scooters/<%= @trip.scooter.id %>"><%= @trip.scooter.name %></a></h2>
+    <h2>Pick Up Location: <%= @trip.pick_up_loc %></h2>
+    <h2>Drop Off Location: <%= @trip.drop_off_loc %></h2>
+    <h2>Total Mileage for Trip: <%= @trip.mileage %> miles</h2>
+
+      <h2><a href = "/trips/<%= @trip.id %>/edit">Edit this Trip</a> | <a href="/trips">Back to Trips</a></h2>
+
+      <form action="/trips/<%= @trip.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Trip">
+      </form>
+
+
+  </body>
+</html>
