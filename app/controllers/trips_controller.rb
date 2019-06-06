@@ -11,8 +11,6 @@ class TripsController < Sinatra::Base
   end
 
   get "/trips/new" do
-    @scooters = Scooter.all
-    @riders = Rider.all
     erb :new
   end
 
