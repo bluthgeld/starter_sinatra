@@ -21,6 +21,17 @@ class ScootersController < Sinatra::Base
       erb :new
     end
 
+    put "/scooters/:id" do
+      id = params[:id]
+      @scooter = Scooter.find(id)
+      new_name= params["name"]
+      new_model = params["model"]
+      new_color = params["color"]
+      new_inception = params["inception_date"]
+      @scooter.update(name: new_name , model: new_model, color: new_color , inception_date: new_inception)
+      redirect "scooters/#{@scooter.id}"
+    end
+
     get "/scooters/:id" do
       id = params[:id]
       @scooter = Scooter.find(id)
@@ -33,5 +44,12 @@ class ScootersController < Sinatra::Base
         @scooter.destroy
         redirect "/scooters"
       end
+
+      get "/scooters/:id/edit" do
+        id = params[:id]
+        @scooter = Scooter.find(id)
+        erb :edit
+      end
+
 
 end

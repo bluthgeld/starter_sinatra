@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Scooter</title>
+  </head>
+  <body>
+
+    <h1>Edit Scooter <%= @scooter.name %> <%=@scooter.model%>
+    </h1>
+    <form action="/scooters/<%= @scooter.id %>" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <label for="name">Name</label>
+      <input type="text" name="name">
+      <label for="model">Model</label>
+      <input type="text" name="model">
+      <label for="color">Color</label>
+      <input type="text" name="color">
+      <label for="inception_date">Inception Date</label>
+      <input type="text" name="inception_date">
+
+      <input type="submit" values="Update Scooter">
+    </form>
+
+
+  </body>
+</html>
