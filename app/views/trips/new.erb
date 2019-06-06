@@ -1,5 +1,22 @@
-<select name="author">
-  <% Author.all.each do |author| %>
-    <option value="<%= author.id %>"><%= author.name %></option>
-  <% end %>
-</select>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create a New Trip</title>
+  </head>
+  <body>
+    <h1>Add a New Trip</h1>
+
+    <form action="/trips" method="POST">
+
+      <label for="date">Date: </label> <input type="text" name="date"><br><br>
+      <label for="mileage">Mileage: </label> <input type="text" name="mileage"><br><br>
+      <label for="pick_up_loc">Pick Up Location</label> <input type="text" name="pick_up_loc"><br><br>
+      <label for="drop_off_loc">Drop Off Location</label> <input type="text" name="drop_off_loc"><br><br>
+      <label for="rider_id">Rider Name</label> <input type="text" name="rider_id"><br><br>
+      <label for="scooter_id">Scooter</label> <input type="text" name="scooter_id"><br><br>
+
+      <input type="submit" values="Create Trip">
+    </form>
+  </body>
+</html>
