@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit a Trip</title>
+  </head>
+  <body>
+
+    <h1>Edit Trip <%= @trip.date %> </h1>
+    <form action="/trips/<%= @trip.id %>" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <label for="date">Date:</label> <%= @trip.date %>
+      <input type="hidden" name="date" value="<%= @trip.date %>">
+      <br><br>
+
+      <label for="rider_id">Rider Name:</label>
+      <select name="rider_id">
+        <% Rider.all.each do |rider| %>
+          <% if rider.id == @trip.rider_id %>
+            <option value="<%= rider.id %>" selected="selected"> <%= rider.first_name %> <%= rider.last_name %> </option>
+          <% else %>
+            <option value="<%= rider.id %>"> <%= rider.first_name %> <%= rider.last_name %> </option>
+          <% end %>
+        <% end %>
+      </select>
+      <br><br>
+
+      <label for="scooter_id">Scooter:</label>
+      <select name="scooter_id">
+
+        <% Scooter.all.each do |scooter| %>
+          <% if scooter.id == @trip.scooter_id %>
+            <option value="<%= scooter.id %>" selected="selected"><%= scooter.name %></option>
+          <% else %>
+            <option value="<%= scooter.id %>"><%= scooter.name %></option>
+          <% end %>
+        <% end %>
+      </select>
+      <br><br>
+
+      <label for="pick_up_loc">Pick Up Location: </label> <input type="text" name="pick_up_loc"><br><br>
+      <label for="drop_off_loc">Drop Off Location: </label> <input type="text" name="drop_off_loc"><br><br>
+      <label for="mileage">Mileage: </label> <input type="text" name="mileage"><br><br>
+      <br><br>
+      <input type="submit" values="Update Scooter">
+    </form>
+
+
+
+  </body>
+</html>
